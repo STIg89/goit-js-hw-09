@@ -10,9 +10,75 @@ body {
   background-color: #fafafa;
   color: #212121;
   line-height: 1.5;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 0 3vw;
+  gap: 30px;
+}
+
+button {
+  cursor: pointer;
 }
 
 img {
   display: block;
   max-width: 100%;
+}
+
+p,
+ul {
+  position: absolute;
+  left: 1vw;
+  top: 0;
+}
+
+.timer {
+  display: flex;
+  gap: 30px;
+  width: 100vw;
+  justify-content: center;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.value {
+  margin: auto;
+  font-size: 3vw;
+  font-weight: bolder;
+}
+
+input,
+button,
+.label,
+label {
+  font-size: 1.4vw;
+  font-weight: bold;
+  text-align: center;
+}
+
+label {
+  width: calc((100% - 60px) / 3);
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+.form button {
+  display: block;
+  margin: 5vh auto;
+}
+
+.form input {
+  width: 100%;
+  margin-top: 30px;
 }

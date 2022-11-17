@@ -1,5 +1,6 @@
 import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 const refs = {
   startBtn: document.querySelector('[data-start]'),
@@ -32,7 +33,11 @@ function onSwitchDate(selectedDates) {
     refs.startBtn.disabled = false;
   } else {
     refs.startBtn.disabled = true;
-    window.alert('Please choose a date in the future');
+    Notify.failure('Please choose a date in the future', {
+      position: 'center-center',
+      fontSize: '35px',
+      width: '600px',
+    });
   }
 }
 
@@ -49,7 +54,7 @@ function onClickStart() {
       clearInterval(timerId);
       return;
     }
-    timerFace(convertMs(timerValue));
+    addTimerFace(convertMs(timerValue));
   }, 1000);
 }
 
@@ -57,7 +62,7 @@ function addLeadingZero(value) {
   return value.toString().padStart(2, 0);
 }
 
-function timerFace({ days, hours, minutes, seconds }) {
+function addTimerFace({ days, hours, minutes, seconds }) {
   refs.daysField.textContent = addLeadingZero(days);
   refs.hoursField.textContent = addLeadingZero(hours);
   refs.minutesField.textContent = addLeadingZero(minutes);
